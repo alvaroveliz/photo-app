@@ -1,0 +1,17 @@
+<% @images.each do |image| %>
+  <div class="row justify-content-md-center">
+    <div class="card col-6 mb-3">
+      <img src="<%= image.picture.url if image.picture %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <small><%= image.user.email %></small>
+        <p class="card-text"><%= image.name %></p>
+      </div>
+    </div>
+  </div>
+<!--
+  <td><%= link_to 'Show', image %></td>
+  <td><%= link_to 'Edit', edit_image_path(image) %></td>
+  <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-->
+<% end %>
+<%= link_to 'New Image', new_image_path, class: 'btn btn-primary' %>

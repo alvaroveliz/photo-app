@@ -1,0 +1,38 @@
+<%= form_with(model: image, local: true, html: { multipart: true,  class: 'form-horizontal image'}) do |form| %>
+  <% if image.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+        <% image.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <%= form.label :name, class: 'col-3' %>
+    <%= form.text_field :name, class: 'col-9 form-control' %>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :picture, class: 'col-3' %>
+    <%= form.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'form-control col-9' %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-9 offset-3">
+      <%= form.submit  'Upload Image', class: 'btn btn-primary' %>
+    </div> 
+  </div>
+<% end %>
+
+<script>
+  $('#image_picture').bind('change', function(){
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB.');
+    }
+  });
+</script>
