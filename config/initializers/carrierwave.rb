@@ -4,7 +4,7 @@ if Rails.env.production?
       :provider               => 'AWS',
       :aws_access_key_id      => Rails.application.credentials.dig(:aws, :access_key_id), 
       :aws_secret_access_key  => Rails.application.credentials.dig(:aws, :secret_access_key),
-      :region                 => 'eu-east-1',
+      :region                 => 'us-east-1',
     }
     config.fog_directory  = 'alvaroveliz-photoapp'
     config.fog_public     = true
