@@ -6,10 +6,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled">Disabled</a>
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
+        <% if current_user %>
+          <%= link_to 'Photos', images_path, class: 'nav-link' %>
+        <% end %>
       </div>
     </div>
     <div class="navbar-nav">
